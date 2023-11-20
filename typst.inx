@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Typst Formula</name>
+  <id>org.inkscape.generate.typst</id>
+  <dependency type="executable" location="path">typst</dependency>
+  <param name="page" type="notebook">
+  
+    <page name="basic" gui-text="Basic settings">
+      <param name="typst_code" type="string" gui-text="typst input:">$ sum_(k=0)^n k = 1 + ... + n = (n(n+1)) / 2 $</param>
+      <param name="font_size" type="int" gui-text="Font size (pt)" max="100" min="3">10</param>
+    </page>
+    
+  </param>
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="Text"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">typst.py</command>
+  </script>
+</inkscape-extension>
